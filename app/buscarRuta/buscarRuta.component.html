@@ -1,0 +1,20 @@
+<div class="container-fluid buscarRuta">
+    <div class="row">
+        <div class="buscarRuta__mapa col-xs-12 col-sm-8 col-sm-push-4 col-md-9 col-md-push-3 no-padding" id="map"></div>
+
+        <div class="col-xs-12 col-sm-4 col-sm-pull-8 col-md-3 col-md-pull-9 buscarRuta__form-wrapper">
+            <h1 class="buscarRuta__titulo">Buscar rutas</h1>
+            <div class="buscarRuta__form clearfix shadow">
+                <div class="col-xs-12 buscarRuta__input-wrapper buscarRuta__input-wrapper--origen">
+                    <input type="text" placeholder="Origen" class="buscarRuta__input buscarRuta__input" (keyup)="obtenerOrigen($event)">
+                </div>
+                <div class="col-xs-12 buscarRuta__input-wrapper buscarRuta__input-wrapper--destino">
+                    <input type="text" placeholder="Destino" class="buscarRuta__input buscarRuta__input" (keyup)="obtenerDestino($event)">
+                </div>
+                <div class="col-xs-12">
+                    <button class="btn btn-success buscarRuta__boton" (click)="buscarRuta()">Buscar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

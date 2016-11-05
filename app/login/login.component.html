@@ -1,0 +1,16 @@
+<div class="container login centrado">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 login__titulo">
+            <h1>Rutas Autónoma</h1>
+        </div>
+        
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <form class="login__form">
+                <input type="text" placeholder="Correo" (keyup)="obtenerCorreo($event)">
+                <input type="text" placeholder="Password" (keyup)="obtenerClave($event)">
+            </form>
+            <button type="submit" class="btn btn-success" (click)="loggear()">Ingresar</button>
+            <a href="#">No estoy registrado</a>
+        </div>
+    </div>
+</div>

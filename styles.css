@@ -1,0 +1,270 @@
+@charset "UTF-8";
+html,
+body {
+  overflow-x: hidden;
+  font-size: 12px;
+  font-family: "Lato", "Helvetica", "Arial", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+ul,
+ol,
+span {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding-left: 0;
+}
+
+input,
+button {
+  border: none;
+}
+
+input:focus,
+button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+@media screen and (min-width: 768px) {
+  html,
+  body {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  html,
+  body {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  html,
+  body {
+    font-size: 16px;
+  }
+}
+
+/* CLASES DE UTILIDAD */
+.centrado {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.shadow {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: all .25s;
+  border-radius: 2px;
+}
+
+.shadow:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+/*------------- BASE IMPORT -------------*/
+html,
+body {
+  overflow-x: hidden;
+  font-size: 12px;
+  font-family: "Lato", "Helvetica", "Arial", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+ul,
+ol,
+span {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding-left: 0;
+}
+
+input,
+button {
+  border: none;
+}
+
+input:focus,
+button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+@media screen and (min-width: 768px) {
+  html,
+  body {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  html,
+  body {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  html,
+  body {
+    font-size: 16px;
+  }
+}
+
+/*------------- TABLE OF CONTENTS -------------*/
+/*
+
+    1. LOGIN
+    2. REGISTRO VEHÍCULO
+    3. BUSCAR RUTA
+
+*/
+/*------------- 1. LOGIN -------------*/
+.login {
+  text-align: center;
+}
+
+.login__form input {
+  display: block;
+  border: 1px solid black;
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px 15px;
+}
+
+.login button {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 10px 15px;
+}
+
+/*------------- 2. REGISTRO VEHÍCULO -------------*/
+.registroVehiculo__titulo {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.registroVehiculo__label {
+  font-size: 1rem;
+}
+
+.registroVehiculo__input-group {
+  margin-bottom: 15px;
+}
+
+.registroVehiculo__input {
+  border: 1px solid black;
+  padding: 10px 15px;
+}
+
+/*------------- 3. BUSCAR RUTA -------------*/
+.buscarRuta__mapa {
+  height: 300px;
+}
+
+.buscarRuta__form-wrapper {
+  background-color: #f2f2f2;
+  padding: 30px;
+}
+
+.buscarRuta__form {
+  background-color: white;
+  padding: 30px;
+}
+
+.buscarRuta__titulo {
+  margin-bottom: 25px;
+}
+
+.buscarRuta__input-wrapper {
+  position: relative;
+  margin-top: 15px;
+}
+
+.buscarRuta__input-wrapper:before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  z-index: 20;
+  top: 50%;
+  left: 25px;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  border-radius: 100%;
+}
+
+.buscarRuta__input-wrapper--origen:after {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  width: 2px;
+  height: 100%;
+  border: 2px dotted black;
+  left: 30px;
+  top: 30px;
+}
+
+.buscarRuta__input-wrapper--origen:before {
+  background-color: #419341;
+}
+
+.buscarRuta__input-wrapper--destino:before {
+  background-color: #c63636;
+}
+
+.buscarRuta__input {
+  border: 1px solid black;
+  padding: 10px 15px 10px 30px;
+  display: block;
+  width: 100%;
+}
+
+.buscarRuta__boton {
+  display: block;
+  margin-top: 15px;
+}
+
+@media screen and (min-width: 768px) {
+  .buscarRuta__mapa, .buscarRuta__form-wrapper {
+    height: 100vh;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
