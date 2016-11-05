@@ -6,6 +6,9 @@ let directionsService;
 let directionsDisplay;
 let origen: string;
 let destino: string;
+let parada: string;
+let paradas:string[] = [];
+let template;
 
 @Component({
     selector: "buscarRuta",
@@ -15,6 +18,8 @@ let destino: string;
 export class BuscarRutaComponent implements OnInit{
     
     ngOnInit() {
+        template = $(".parada-wrapper").html();
+        
         directionsService = new google.maps.DirectionsService;
         directionsDisplay = new google.maps.DirectionsRenderer;
         
@@ -35,18 +40,28 @@ export class BuscarRutaComponent implements OnInit{
     }
     
     buscarRuta() {
-        calculateAndDisplayRoute(directionsService, directionsDisplay, origen, destino);
+        calculateAndDisplayRoute(directionsService, directionsDisplay, origen, destino, paradas);
+    }
+    
+    obtenerParada(e) {
+        parada = e.target.value;
+    }
+    
+    agregarParada() {
+        paradas.push(parada);
+        console.log(paradas);
+        $(".parada-wrapper").append(template);
+        //$(".buscarRuta__input--parada").last().val("");
     }
     
 }
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay, origen, destino, paradas) {
     var waypts = [];
-    var checkboxArray:any[] = ['winnipeg', 'regina','calgary'];
             
-    for (var i = 0; i < checkboxArray.length; i++) {
+    for (var i = 0; i < paradas.length; i++) {
         waypts.push({
-            location: checkboxArray[i],
+            location: paradas[i],
             stopover: true
         });
     }
@@ -54,6 +69,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, origen, 
     directionsService.route({
         origin: origen,
         destination: destino,
+        waypoints: waypts,
         optimizeWaypoints: true,
         travelMode: 'DRIVING'
     }, function(response, status) {

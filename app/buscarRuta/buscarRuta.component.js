@@ -13,10 +13,14 @@ var directionsService;
 var directionsDisplay;
 var origen;
 var destino;
+var parada;
+var paradas = [];
+var template;
 var BuscarRutaComponent = (function () {
     function BuscarRutaComponent() {
     }
     BuscarRutaComponent.prototype.ngOnInit = function () {
+        template = $(".parada-wrapper").html();
         directionsService = new google.maps.DirectionsService;
         directionsDisplay = new google.maps.DirectionsRenderer;
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -32,7 +36,16 @@ var BuscarRutaComponent = (function () {
         destino = e.target.value;
     };
     BuscarRutaComponent.prototype.buscarRuta = function () {
-        calculateAndDisplayRoute(directionsService, directionsDisplay, origen, destino);
+        calculateAndDisplayRoute(directionsService, directionsDisplay, origen, destino, paradas);
+    };
+    BuscarRutaComponent.prototype.obtenerParada = function (e) {
+        parada = e.target.value;
+    };
+    BuscarRutaComponent.prototype.agregarParada = function () {
+        paradas.push(parada);
+        console.log(paradas);
+        $(".parada-wrapper").append(template);
+        //$(".buscarRuta__input--parada").last().val("");
     };
     BuscarRutaComponent = __decorate([
         core_1.Component({
@@ -46,16 +59,16 @@ var BuscarRutaComponent = (function () {
 exports.BuscarRutaComponent = BuscarRutaComponent;
 function calculateAndDisplayRoute(directionsService, directionsDisplay, origen, destino, paradas) {
     var waypts = [];
-    var checkboxArray = ['winnipeg', 'regina', 'calgary'];
-    for (var i = 0; i < checkboxArray.length; i++) {
+    for (var i = 0; i < paradas.length; i++) {
         waypts.push({
-            location: checkboxArray[i],
+            location: paradas[i],
             stopover: true
         });
     }
     directionsService.route({
         origin: origen,
         destination: destino,
+        waypoints: waypts,
         optimizeWaypoints: true,
         travelMode: 'DRIVING'
     }, function (response, status) {

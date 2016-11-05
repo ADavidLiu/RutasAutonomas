@@ -38,6 +38,16 @@ button:focus {
   box-shadow: none;
 }
 
+::-moz-selection {
+  background-color: #419341;
+  color: white;
+}
+
+::selection {
+  background-color: #419341;
+  color: white;
+}
+
 @media screen and (min-width: 768px) {
   html,
   body {
@@ -123,6 +133,16 @@ button:focus {
   box-shadow: none;
 }
 
+::-moz-selection {
+  background-color: #419341;
+  color: white;
+}
+
+::selection {
+  background-color: #419341;
+  color: white;
+}
+
 @media screen and (min-width: 768px) {
   html,
   body {
@@ -205,6 +225,19 @@ button:focus {
 .buscarRuta__form {
   background-color: white;
   padding: 30px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.buscarRuta__form:before {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  width: 1px;
+  height: 12%;
+  border: 1px dotted black;
+  left: 62px;
+  top: 60px;
 }
 
 .buscarRuta__titulo {
@@ -230,17 +263,6 @@ button:focus {
   border-radius: 100%;
 }
 
-.buscarRuta__input-wrapper--origen:after {
-  content: "";
-  position: absolute;
-  z-index: 10;
-  width: 2px;
-  height: 100%;
-  border: 2px dotted black;
-  left: 30px;
-  top: 30px;
-}
-
 .buscarRuta__input-wrapper--origen:before {
   background-color: #419341;
 }
@@ -249,11 +271,46 @@ button:focus {
   background-color: #c63636;
 }
 
+.buscarRuta__input-wrapper--parada:before {
+  background-color: #fcf32a;
+}
+
+.buscarRuta__icon {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  right: 15px;
+  width: 35px;
+  height: 100%;
+  background-color: #419341;
+  border: 1px solid black;
+  border-radius: 0 2px 2px 0;
+}
+
+.buscarRuta__icon i {
+  font-size: 1rem;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 30;
+}
+
 .buscarRuta__input {
   border: 1px solid black;
   padding: 10px 15px 10px 30px;
   display: block;
   width: 100%;
+  border-radius: 2px;
+}
+
+.buscarRuta__input--parada {
+  padding: 5px 15px;
+  width: 88%;
+  margin-left: auto;
 }
 
 .buscarRuta__boton {

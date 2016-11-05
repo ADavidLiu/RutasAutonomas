@@ -1,6 +1,9 @@
 /*------------- BASE IMPORT -------------*/
+
 @import "_base";
+
 /*------------- TABLE OF CONTENTS -------------*/
+
 
 /*
 
@@ -10,7 +13,9 @@
 
 */
 
+
 /*------------- 1. LOGIN -------------*/
+
 .login {
     text-align: center;
     &__form {
@@ -31,7 +36,9 @@
     }
 }
 
+
 /*------------- 2. REGISTRO VEHÍCULO -------------*/
+
 .registroVehiculo {
     &__titulo {
         margin-bottom: 25px;
@@ -49,7 +56,9 @@
     }
 }
 
+
 /*------------- 3. BUSCAR RUTA -------------*/
+
 .buscarRuta {
     &__mapa {
         height: 300px;
@@ -61,6 +70,18 @@
     &__form {
         background-color: white;
         padding: 30px;
+        margin-bottom: 30px;
+        position: relative;
+        &:before {
+            content: "";
+            position: absolute;
+            z-index: 10;
+            width: 1px;
+            height: 12%;
+            border: 1px dotted black;
+            left: 62px;
+            top: 60px;
+        }
     }
     &__titulo {
         margin-bottom: 25px;
@@ -79,22 +100,34 @@
             transform: translateY(-50%);
             border-radius: 100%;
         }
-        &--origen:after {
-            content: "";
-            position: absolute;
-            z-index: 10;
-            width: 2px;
-            height: 100%;
-            border: 2px dotted black;
-            left: 30px;
-            top: 30px;
-            
-        }
         &--origen:before {
             background-color: #419341;
         }
         &--destino:before {
             background-color: #c63636;
+        }
+        &--parada:before {
+            background-color: #fcf32a;
+        }
+    }
+    &__icon {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        right: 15px;
+        width: 35px;
+        height: 100%;
+        background-color: #419341;
+        border: 1px solid black;
+        border-radius: 0 2px 2px 0;
+        i {
+            font-size: 1rem;
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 30;
         }
     }
     &__input {
@@ -102,6 +135,12 @@
         padding: 10px 15px 10px 30px;
         display: block;
         width: 100%;
+        border-radius: 2px;
+        &--parada {
+            padding: 5px 15px;
+            width: 88%;
+            margin-left: auto;
+        }
     }
     &__boton {
         display: block;
@@ -117,13 +156,3 @@
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
