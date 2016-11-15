@@ -1,0 +1,39 @@
+<div class="container-fluid logout shadow">
+    <div class="row">
+        <div class="logout__btn">
+            <button class="btn btn-danger" routerLink="/">Logout</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="container misRutas centrado">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 misRutas__titulo">
+            <h1>Mis rutas</h1>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 misRutas__rutas">
+            <table class="table table-bordered table-hover">
+                <tr class="misRutas__secciones">
+                    <td>Origen</td>
+                    <td>Destino</td>
+                    <td>Estado</td>
+                    <td>Cupo disponible</td>
+                    <td>Acciones</td>
+                </tr>
+                <tr class="misRutas__ruta">
+                    <td>
+                        <i class="fa fa-check-square-o activar" aria-hidden="true" (click)="activarRuta()"></i>
+                        <i class="fa fa-ban desactivar" aria-hidden="true" (click)="desactivarRuta()"></i>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 misRutas__links">
+            <a routerLink="/registroRuta">Registrar ruta</a>
+            <a routerLink="/registroVehiculo">Registrar vehículo</a>
+        </div>
+    </div>
+</div>

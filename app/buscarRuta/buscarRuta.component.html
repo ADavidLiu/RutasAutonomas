@@ -1,3 +1,11 @@
+<div class="container-fluid logout shadow">
+    <div class="row">
+        <div class="logout__btn">
+            <button class="btn btn-danger" routerLink="/">Logout</button>
+        </div>
+    </div>
+</div>
+
 <div class="container-fluid buscarRuta">
     <div class="row">
         <div class="buscarRuta__mapa col-xs-12 col-sm-8 col-sm-push-4 col-md-9 col-md-push-3 no-padding" id="map"></div>
@@ -7,7 +15,16 @@
 
             <div class="buscarRuta__form clearfix shadow">
                 <div class="col-xs-12 buscarRuta__input-wrapper buscarRuta__input-wrapper--origen">
+
+
                     <input type="text" placeholder="Origen" class="buscarRuta__input buscarRuta__input" (keyup)="obtenerOrigen($event)">
+
+                    <select (change)="escogerOrigen($event.target.value)">
+                        <option value="">Seleccione una opción</option>
+                        <option value="Unicentro, Cali">Unicentro</option>
+                        <option value="Palmetto, Cali">Palmetto</option>
+                        <option value="Chipichape, Cali">Chipichape</option>
+                    </select>
                 </div>
                 <div class="parada-wrapper">
                     <div class="col-xs-12 buscarRuta__input-wrapper buscarRuta__input-wrapper--parada">
@@ -19,6 +36,13 @@
                 </div>
                 <div class="col-xs-12 buscarRuta__input-wrapper buscarRuta__input-wrapper--destino">
                     <input type="text" placeholder="Destino" class="buscarRuta__input buscarRuta__input" (keyup)="obtenerDestino($event)">
+
+                    <select (change)="escogerDestino($event.target.value)">
+                        <option value="">Seleccione una opción</option>
+                        <option value="Universidad Autónoma de Occidente, Cali">Universidad Autónoma de Occidente</option>
+                        <option value="Valle del Lili, Cali">Valle del Lili</option>
+                        <option value="Jardín Plaza, Cali">Jardín Plaza</option>
+                    </select>
                 </div>
                 <div class="col-xs-12">
                     <button class="btn btn-success buscarRuta__boton" (click)="buscarRuta()">Buscar</button>
@@ -26,6 +50,8 @@
             </div>
 
             <h2 class="buscarRuta__titulo">Rutas disponibles</h2>
+
+            <ruta></ruta>
         </div>
     </div>
 </div>

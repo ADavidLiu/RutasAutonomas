@@ -40,6 +40,10 @@ button {
     }
 }
 
+select {
+    max-width: 100%;
+}
+
 ::selection {
     background-color: #419341;
     color: white;

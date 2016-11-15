@@ -1,0 +1,43 @@
+<div class="container registroRuta centrado">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 registroRuta__titulo">
+            <h1>Registro ruta</h1>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 registroRuta__form">
+            <div class="registroRuta__input-group col-xs-12">
+                <label for="origen" class="col-xs-6">Origen</label>
+                <select (change)="escogerOrigen($event.target.value)" class="col-xs-6">
+                    <option value="">Seleccione una opción</option>
+                    <option value="Unicentro, Cali">Unicentro</option>
+                    <option value="Palmetto, Cali">Palmetto</option>
+                    <option value="Chipichape, Cali">Chipichape</option>
+                </select>
+            </div>
+
+            <div class="registroRuta__input-group col-xs-12">
+                <label for="destino" class="col-xs-6">Destino</label>
+                <select (change)="escogerOrigen($event.target.value)" class="col-xs-6">
+                    <option value="">Seleccione una opción</option>
+                    <option value="Universidad Autónoma de Occidente, Cali">Universidad Autónoma de Occidente</option>
+                    <option value="Valle del Lili, Cali">Valle del Lili</option>
+                    <option value="Jardín Plaza, Cali">Jardín Plaza</option>
+                </select>
+            </div>
+            
+            <div class="registroRuta__input-group col-xs-12">
+                <label for="vehiculos" class="col-xs-6">Mis vehículos</label>
+                <select class="col-xs-6" (change)="escogerVehiculo($event.target.value)">
+                    <option value="">Seleccione un vehículo</option>
+                    <option value="placa1">Vehículo 1</option>
+                    <option value="placa2">Vehículo 2</option>
+                    <option value="placa3">Vehículo 3</option>
+                </select>
+            </div>
+            
+            <div class="registroRuta__input-group col-xs-12">
+                <button class="btn btn-success col-xs-12 col-sm-6 col-sm-offset-3" routerLink="/misRutas">Regsitrar ruta</button>
+            </div>
+        </div>
+    </div>
+</div>

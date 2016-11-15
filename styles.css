@@ -38,6 +38,10 @@ button:focus {
   box-shadow: none;
 }
 
+select {
+  max-width: 100%;
+}
+
 ::-moz-selection {
   background-color: #419341;
   color: white;
@@ -133,6 +137,10 @@ button:focus {
   box-shadow: none;
 }
 
+select {
+  max-width: 100%;
+}
+
 ::-moz-selection {
   background-color: #419341;
   color: white;
@@ -166,12 +174,30 @@ button:focus {
 
 /*------------- TABLE OF CONTENTS -------------*/
 /*
-
+    
+    0. LOGOUT
     1. LOGIN
     2. REGISTRO VEHÍCULO
     3. BUSCAR RUTA
+    4. REGISTRO RUTA
+    5. MIS RUTAS
+    6. RUTA
 
 */
+/*------------- 0. LOGOUT -------------*/
+.logout {
+  background-color: #f2f2f2;
+  padding: 15px;
+  position: fixed;
+  z-index: 99999999999;
+  width: 100vw;
+}
+
+.logout__btn {
+  float: right;
+  padding-right: 15px;
+}
+
 /*------------- 1. LOGIN -------------*/
 .login {
   text-align: center;
@@ -195,12 +221,12 @@ button:focus {
 
 /*------------- 2. REGISTRO VEHÍCULO -------------*/
 .registroVehiculo__titulo {
-  margin-bottom: 25px;
   text-align: center;
 }
 
 .registroVehiculo__label {
   font-size: 1rem;
+  margin-top: 25px;
 }
 
 .registroVehiculo__input-group {
@@ -210,6 +236,18 @@ button:focus {
 .registroVehiculo__input {
   border: 1px solid black;
   padding: 10px 15px;
+  margin-top: 25px;
+}
+
+.registroVehiculo__imagen {
+  margin-top: 25px;
+  width: 100%;
+  height: 360px;
+  padding: 0 0 0 15px;
+}
+
+.registroVehiculo__btn {
+  padding-left: 30px;
 }
 
 /*------------- 3. BUSCAR RUTA -------------*/
@@ -219,7 +257,8 @@ button:focus {
 
 .buscarRuta__form-wrapper {
   background-color: #f2f2f2;
-  padding: 30px;
+  padding: 90px 30px 30px 30px;
+  overflow-y: scroll;
 }
 
 .buscarRuta__form {
@@ -322,6 +361,64 @@ button:focus {
   .buscarRuta__mapa, .buscarRuta__form-wrapper {
     height: 100vh;
   }
+}
+
+/*------------- 4. REGISTRO RUTA -------------*/
+.registroRuta__titulo {
+  text-align: center;
+}
+
+.registroRuta__input-group {
+  margin-top: 25px;
+}
+
+/*------------- 5. MIS RUTAS -------------*/
+.misRutas__titulo {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.misRutas__secciones td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.misRutas__ruta i {
+  cursor: pointer;
+  font-size: 20px;
+  width: 50%;
+  height: auto;
+  float: left;
+}
+
+.misRutas__ruta i:before {
+  position: relative;
+  left: 45%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.misRutas__ruta i.activar {
+  color: green;
+}
+
+.misRutas__ruta i.desactivar {
+  color: red;
+}
+
+.misRutas__links a:last-child {
+  float: right;
+}
+
+/*------------- 6. RUTA -------------*/
+.ruta {
+  background-color: white;
+  padding: 25px;
+}
+
+.ruta__conductor, .ruta__placa {
+  padding-bottom: 25px;
 }
 
 /*# sourceMappingURL=styles.css.map */

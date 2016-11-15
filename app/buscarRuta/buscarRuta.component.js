@@ -47,6 +47,14 @@ var BuscarRutaComponent = (function () {
         $(".parada-wrapper").append(template);
         //$(".buscarRuta__input--parada").last().val("");
     };
+    BuscarRutaComponent.prototype.escogerOrigen = function (valor) {
+        console.log(valor);
+        origen = valor;
+    };
+    BuscarRutaComponent.prototype.escogerDestino = function (valor) {
+        console.log(valor);
+        destino = valor;
+    };
     BuscarRutaComponent = __decorate([
         core_1.Component({
             selector: "buscarRuta",

@@ -2,6 +2,8 @@ declare let google;
 
 import {Component} from "@angular/core";
 
+import {RutaComponent} from "../ruta/ruta.component";
+
 let directionsService;
 let directionsDisplay;
 let origen: string;
@@ -52,6 +54,16 @@ export class BuscarRutaComponent implements OnInit{
         console.log(paradas);
         $(".parada-wrapper").append(template);
         //$(".buscarRuta__input--parada").last().val("");
+    }
+    
+    escogerOrigen(valor) {
+        console.log(valor);
+        origen = valor;
+    }
+    
+    escogerDestino(valor) {
+        console.log(valor);
+        destino = valor;
     }
     
 }

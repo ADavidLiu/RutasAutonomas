@@ -12,6 +12,30 @@ var core_1 = require("@angular/core");
 var RegistroVehiculoComponent = (function () {
     function RegistroVehiculoComponent() {
     }
+    RegistroVehiculoComponent.prototype.obtenerPlaca = function (e) {
+        this.placa = e.target.value;
+        console.log("Placa: " + this.placa);
+    };
+    RegistroVehiculoComponent.prototype.obtenerModelo = function (e) {
+        this.modelo = e.target.value;
+        console.log("Modelo: " + this.modelo);
+    };
+    RegistroVehiculoComponent.prototype.obtenerColor = function (e) {
+        this.color = e.target.value;
+        console.log("Color: " + this.color);
+    };
+    RegistroVehiculoComponent.prototype.obtenerImagenVehiculo = function () {
+        var preview = document.querySelector('img');
+        var file = document.querySelector('input[type=file]').files[0];
+        var reader = new FileReader();
+        reader.addEventListener("load", function () {
+            preview.src = reader.result;
+            console.log(reader.result);
+        }, false);
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    };
     RegistroVehiculoComponent = __decorate([
         core_1.Component({
             selector: "registroVehiculo",

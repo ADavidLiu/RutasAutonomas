@@ -7,15 +7,20 @@ import { RouterModule }   from '@angular/router';
 import {LoginComponent} from "./login/login.component";
 import {RegistroVehiculoComponent} from "./registroVehiculo/registroVehiculo.component";
 import {BuscarRutaComponent} from "./buscarRuta/buscarRuta.component";
+import {RegistroRutaComponent} from "./registroRuta/registroRuta.component";
+import {MisRutasComponent} from "./misRutas/misRutas.component"
+import {RutaComponent} from "./ruta/ruta.component";
 
 @NgModule({
   imports:      [ BrowserModule, HttpModule, RouterModule.forRoot([
           { path: 'registroVehiculo', component: RegistroVehiculoComponent },
           { path: 'buscarRuta', component: BuscarRutaComponent },
+          { path: "registroRuta", component: RegistroRutaComponent },
+          { path: "misRutas", component: MisRutasComponent },
           { path: '', component: LoginComponent }
         ])
     ],
-  declarations: [ AppComponent, LoginComponent, RegistroVehiculoComponent, BuscarRutaComponent ],
+  declarations: [ AppComponent, LoginComponent, RegistroVehiculoComponent, BuscarRutaComponent, RegistroRutaComponent, MisRutasComponent, RutaComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
