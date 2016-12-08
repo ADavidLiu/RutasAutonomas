@@ -21,13 +21,25 @@
             </div>
             
             <div class="registroVehiculo__input-group col-xs-12">
+                <label for="cupos" class="registr_Vehiculo__label col-xs-12 col-sm-6">Cupo</label>
+                <select name="cupos" id="cupos" (change)="obtenerCupos($event.target.value)">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+            </div>
+            
+            <div class="registroVehiculo__input-group col-xs-12">
                 <label for="imagenVehiculoInput" class="registroVehiculo__label col-xs-12 col-sm-6">Cargar imagen del vehículo</label>
                 <input type="file" id="imagenVehiculoInput" class="registroVehiculo__input col-xs-12 col-sm-6" (change)="obtenerImagenVehiculo()">
                 <img src="" alt="ImagenVehículo" class="registroVehiculo__imagen" id="imagenVehiculo">
             </div>
             
             <div class="registroVehiculo__btn col-xs-12">
-                <button class="col-xs-12 btn btn-success" routerLink="/misRutas">Registrar</button>
+                <button class="col-xs-12 btn btn-success" routerLink="/misRutas" (click)="registrar()">Registrar</button>
             </div>
         </div>
     </div>

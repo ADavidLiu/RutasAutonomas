@@ -4,7 +4,8 @@ import {LoginComponent} from "./login/login.component";
 import {RegistroComponent} from "./registroVehiculo/registroVehiculo.component";
 import {BuscarRutaComponent} from "./buscarRuta/buscarRuta.component";
 import {RegistroRutaComponent} from "./registroRuta/registroRuta.component";
-import {MisRutas} from "./misRutas/misRutas.component";
+import {MisRutasComponent} from "./misRutas/misRutas.component";
+import {RegistroUsuarioComponent} from "./registroUsuario/registroUsuario.component";
 
 @Component({
   selector: 'my-app',

@@ -9,8 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var registroVehiculo_service_1 = require("./registroVehiculo.service");
+var base64;
 var RegistroVehiculoComponent = (function () {
-    function RegistroVehiculoComponent() {
+    function RegistroVehiculoComponent(_registroVehiculoService) {
+        this._registroVehiculoService = _registroVehiculoService;
+        this.cupos = 1;
     }
     RegistroVehiculoComponent.prototype.obtenerPlaca = function (e) {
         this.placa = e.target.value;
@@ -30,18 +34,28 @@ var RegistroVehiculoComponent = (function () {
         var reader = new FileReader();
         reader.addEventListener("load", function () {
             preview.src = reader.result;
-            console.log(reader.result);
+            base64 = reader.result;
         }, false);
         if (file) {
             reader.readAsDataURL(file);
         }
     };
+    RegistroVehiculoComponent.prototype.obtenerCupos = function (valor) {
+        this.cupos = valor;
+        console.log(this.cupos);
+    };
+    RegistroVehiculoComponent.prototype.registrar = function () {
+        this._registroVehiculoService.registrarVehiculo(this.placa, this.modelo, this.color, this.cupos, base64, "emailprueba@mail.com").subscribe(function (res) {
+            console.log(res);
+        });
+    };
     RegistroVehiculoComponent = __decorate([
         core_1.Component({
             selector: "registroVehiculo",
-            templateUrl: "app/registroVehiculo/registroVehiculo.component.html"
+            templateUrl: "app/registroVehiculo/registroVehiculo.component.html",
+            providers: [registroVehiculo_service_1.RegistroVehiculoService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [registroVehiculo_service_1.RegistroVehiculoService])
     ], RegistroVehiculoComponent);
     return RegistroVehiculoComponent;
 }());

@@ -8,30 +8,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
+var module_1 = require();
+"@angular/core";
 var http_1 = require("@angular/http");
-var LoginService = (function () {
-    function LoginService(_http) {
+var BuscarRutaService = (function () {
+    function BuscarRutaService(_http) {
         this._http = _http;
     }
-    LoginService.prototype.loggear = function (email, rol) {
-        console.log("Email: " + email);
-        var urlLogin = "https://46b1bef9fb5daf7f51791862ee5b31df-nodejs.codepicnic.com";
-        if (rol === "conductor") {
-            var completa = urlLogin + "/Conductores/correo/" + email;
-        }
-        else {
-            var completa = urlLogin + "/Pasajero/correo/" + email;
-        }
-        var headers = new Headers({ 'Content-Type': 'application/json' });
-        var options = new http_1.RequestOptions({ headers: headers });
-        return this._http.get(completa, options);
+    BuscarRutaService.prototype.buscarRutas = function (origen, destino, estado) {
+        console.log("Origen: " + origen);
+        console.log("Destino: " + destino);
+        console.log("Estado: " + estado);
     };
-    LoginService = __decorate([
-        core_1.Injectable(), 
+    BuscarRutaService = __decorate([
+        module_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], LoginService);
-    return LoginService;
+    ], BuscarRutaService);
+    return BuscarRutaService;
 }());
-exports.LoginService = LoginService;
-//# sourceMappingURL=login.service.js.map
+exports.BuscarRutaService = BuscarRutaService;
+//# sourceMappingURL=buscarRuta.service.js.map

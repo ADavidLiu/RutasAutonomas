@@ -7,7 +7,7 @@
 </div>
 
 
-<div class="container misRutas centrado">
+<div class="container misRutas" style="padding-top: 100px;">
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-sm-offset-3 misRutas__titulo">
             <h1>Mis rutas</h1>
@@ -15,25 +15,42 @@
 
         <div class="col-xs-12 col-sm-6 col-sm-offset-3 misRutas__rutas">
             <table class="table table-bordered table-hover">
-                <tr class="misRutas__secciones">
+                <!--<tr class="misRutas__secciones">
                     <td>Origen</td>
                     <td>Destino</td>
                     <td>Estado</td>
-                    <td>Cupo disponible</td>
                     <td>Acciones</td>
-                </tr>
+                </tr>-->
+            
                 <tr class="misRutas__ruta">
+                   
+                    <td class="misRutasLista"></td>
+                   
+                    <!--<td>{{ruta.origen}}</td>
+                    <td>{{ruta.destino}}</td>
+                    <td>{{ruta.estado}}</td>
                     <td>
                         <i class="fa fa-check-square-o activar" aria-hidden="true" (click)="activarRuta()"></i>
                         <i class="fa fa-ban desactivar" aria-hidden="true" (click)="desactivarRuta()"></i>
-                    </td>
+                    </td>-->
                 </tr>
             </table>
         </div>
 
         <div class="col-xs-12 col-sm-6 col-sm-offset-3 misRutas__links">
-            <a routerLink="/registroRuta">Registrar ruta</a>
-            <a routerLink="/registroVehiculo">Registrar vehículo</a>
+            <a (click)="irRegistroRuta()">Registrar ruta</a>
+            <a (click)="irRegistroVehiculo()">Registrar vehículo</a>
+        </div>
+        
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 misRutas__carro">
+            <h2>Mi carro</h2>
+            
+            <ul>
+                <li><span>Placa: </span> {{this.placaCarro}} </li>
+                <li><span>Cupo original: </span> {{this.cuposCarro}} </li>
+                <li><span>Color: </span> {{this.colorCarro}} </li>
+                <li><span>Imagen: </span> <img id="imagenCarro" src="" alt="Imagen"></li>
+            </ul>
         </div>
     </div>
 </div>

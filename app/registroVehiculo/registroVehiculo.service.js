@@ -10,31 +10,39 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
-var MisRutasService = (function () {
-    function MisRutasService(_http) {
+var RegistroVehiculoService = (function () {
+    function RegistroVehiculoService(_http) {
         this._http = _http;
     }
-    MisRutasService.prototype.consultarCarros = function (email) {
-        console.log("Email: " + email);
-        var url = "https://46b1bef9fb5daf7f51791862ee5b31df-nodejs.codepicnic.com";
-        var completa = url + "/Carro/correo/" + email;
-        var headers = new Headers({ 'Content-Type': 'application/json' });
-        var options = new http_1.RequestOptions({ headers: headers });
-        return this._http.get(completa, options);
-    };
-    MisRutasService.prototype.consultarRutas = function (placa) {
+    RegistroVehiculoService.prototype.registrarVehiculo = function (placa, modelo, color, cupo, imagen, email) {
         console.log("Placa: " + placa);
-        var url = "https://46b1bef9fb5daf7f51791862ee5b31df-nodejs.codepicnic.com";
-        var completa = url + "/Ruta/placa/" + placa;
+        console.log("Modelo: " + modelo);
+        console.log("Color: " + color);
+        console.log("Cupo: " + cupo);
+        console.log("Email: " + email);
+        console.log("Imagen: " + imagen);
+        var urlRegistroVehiculo = "https://46b1bef9fb5daf7f51791862ee5b31df-nodejs.codepicnic.com";
         var headers = new Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
-        return this._http.get(completa, options);
+        var body = {
+            "col": "Carro",
+            "data": {
+                "placa": placa,
+                "correo": email,
+                "modelo": modelo,
+                "color": color,
+                "imagen": imagen,
+                "cupos": cupo
+            }
+        };
+        var bodyString = JSON.stringify(body);
+        return this._http.post(urlRegistroVehiculo, bodyString, options);
     };
-    MisRutasService = __decorate([
+    RegistroVehiculoService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], MisRutasService);
-    return MisRutasService;
+    ], RegistroVehiculoService);
+    return RegistroVehiculoService;
 }());
-exports.MisRutasService = MisRutasService;
-//# sourceMappingURL=misRutas.service.js.map
+exports.RegistroVehiculoService = RegistroVehiculoService;
+//# sourceMappingURL=registroVehiculo.service.js.map

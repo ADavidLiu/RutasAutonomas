@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var http_1 = require("@angular/http");
 var directionsService;
 var directionsDisplay;
 var origen;
@@ -16,8 +17,10 @@ var destino;
 var parada;
 var paradas = [];
 var template;
+var rutas = [];
 var BuscarRutaComponent = (function () {
-    function BuscarRutaComponent() {
+    function BuscarRutaComponent(_http) {
+        this._http = _http;
     }
     BuscarRutaComponent.prototype.ngOnInit = function () {
         template = $(".parada-wrapper").html();
@@ -34,9 +37,6 @@ var BuscarRutaComponent = (function () {
     };
     BuscarRutaComponent.prototype.obtenerDestino = function (e) {
         destino = e.target.value;
-    };
-    BuscarRutaComponent.prototype.buscarRuta = function () {
-        calculateAndDisplayRoute(directionsService, directionsDisplay, origen, destino, paradas);
     };
     BuscarRutaComponent.prototype.obtenerParada = function (e) {
         parada = e.target.value;
@@ -55,12 +55,29 @@ var BuscarRutaComponent = (function () {
         console.log(valor);
         destino = valor;
     };
+    BuscarRutaComponent.prototype.buscarRuta = function () {
+        calculateAndDisplayRoute(directionsService, directionsDisplay, origen, destino, paradas);
+        var url = "https://46b1bef9fb5daf7f51791862ee5b31df-nodejs.codepicnic.com/Ruta";
+        var headers = new Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        this._http.get(url, options).subscribe(function (res) {
+            console.log(res);
+            var json = JSON.parse(res._body);
+            console.log(json);
+            for (var i = 0; i < json.value.length; i++) {
+                var ruta = json.value[i];
+                rutas.push(ruta);
+                $(".rutasLista").append("<li>" + JSON.stringify(ruta) + "</li>");
+            }
+            console.log(rutas);
+        });
+    };
     BuscarRutaComponent = __decorate([
         core_1.Component({
             selector: "buscarRuta",
             templateUrl: "app/buscarRuta/buscarRuta.component.html"
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http])
     ], BuscarRutaComponent);
     return BuscarRutaComponent;
 }());

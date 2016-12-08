@@ -19,6 +19,7 @@ var buscarRuta_component_1 = require("./buscarRuta/buscarRuta.component");
 var registroRuta_component_1 = require("./registroRuta/registroRuta.component");
 var misRutas_component_1 = require("./misRutas/misRutas.component");
 var ruta_component_1 = require("./ruta/ruta.component");
+var registroUsuario_component_1 = require("./registroUsuario/registroUsuario.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -29,10 +30,11 @@ var AppModule = (function () {
                     { path: 'buscarRuta', component: buscarRuta_component_1.BuscarRutaComponent },
                     { path: "registroRuta", component: registroRuta_component_1.RegistroRutaComponent },
                     { path: "misRutas", component: misRutas_component_1.MisRutasComponent },
+                    { path: "registroUsuario", component: registroUsuario_component_1.RegistroUsuarioComponent },
                     { path: '', component: login_component_1.LoginComponent }
                 ])
             ],
-            declarations: [app_component_1.AppComponent, login_component_1.LoginComponent, registroVehiculo_component_1.RegistroVehiculoComponent, buscarRuta_component_1.BuscarRutaComponent, registroRuta_component_1.RegistroRutaComponent, misRutas_component_1.MisRutasComponent, ruta_component_1.RutaComponent],
+            declarations: [app_component_1.AppComponent, login_component_1.LoginComponent, registroVehiculo_component_1.RegistroVehiculoComponent, buscarRuta_component_1.BuscarRutaComponent, registroRuta_component_1.RegistroRutaComponent, misRutas_component_1.MisRutasComponent, ruta_component_1.RutaComponent, registroUsuario_component_1.RegistroUsuarioComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

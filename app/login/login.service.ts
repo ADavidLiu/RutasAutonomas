@@ -7,26 +7,21 @@ export class LoginService {
     
     constructor(private _http: Http) {}
     
-    loggear(email, clave) {
+    loggear(email, rol) {
         console.log("Email: " + email)
-        console.log("Clave: " + clave)
         
-        let urlLogin = "http://port-6000.hn5esotchtwqaorb9cwzr6z4lhaorgmn6md92uykwewmi.box.codeanywhere.com/Usuario/nombre" + email;
+        let urlLogin = "https://46b1bef9fb5daf7f51791862ee5b31df-nodejs.codepicnic.com";
+        
+        if (rol === "conductor") {
+            let completa = urlLogin + "/Conductores/correo/" + email;
+        } else {
+            let completa = urlLogin + "/Pasajero/correo/" + email;
+        }
         
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
         
-        let body = {
-            "col": "Usuario",
-            "data": {
-                "clave": clave,
-                "email": email
-            }
-        }
-        
-        let bodyString = JSON.stringify(body);
-        
-        return this._http.post(urlLogin, bodyString, options);
+        return this._http.get(completa, options);
     }
     
 }

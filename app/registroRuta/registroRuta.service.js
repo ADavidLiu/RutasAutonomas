@@ -10,11 +10,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
-var MisRutasService = (function () {
-    function MisRutasService(_http) {
+var RegistroRutaService = (function () {
+    function RegistroRutaService(_http) {
         this._http = _http;
     }
-    MisRutasService.prototype.consultarCarros = function (email) {
+    RegistroRutaService.prototype.registrarRuta = function (origen, destino, placa, estado) {
+        console.log("Origen: " + origen);
+        console.log("Destino: " + destino);
+        console.log("Placa: " + placa);
+        var urlRegistroRuta = "https://46b1bef9fb5daf7f51791862ee5b31df-nodejs.codepicnic.com";
+        var headers = new Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        var body = {
+            "col": "Ruta",
+            "data": {
+                "origen": origen,
+                "destino": destino,
+                "placa": placa,
+                "estado": estado
+            }
+        };
+        var bodyString = JSON.stringify(body);
+        return this._http.post(urlRegistroRuta, bodyString, options);
+    };
+    RegistroRutaService.prototype.consultarCarros = function (email) {
         console.log("Email: " + email);
         var url = "https://46b1bef9fb5daf7f51791862ee5b31df-nodejs.codepicnic.com";
         var completa = url + "/Carro/correo/" + email;
@@ -22,19 +41,11 @@ var MisRutasService = (function () {
         var options = new http_1.RequestOptions({ headers: headers });
         return this._http.get(completa, options);
     };
-    MisRutasService.prototype.consultarRutas = function (placa) {
-        console.log("Placa: " + placa);
-        var url = "https://46b1bef9fb5daf7f51791862ee5b31df-nodejs.codepicnic.com";
-        var completa = url + "/Ruta/placa/" + placa;
-        var headers = new Headers({ 'Content-Type': 'application/json' });
-        var options = new http_1.RequestOptions({ headers: headers });
-        return this._http.get(completa, options);
-    };
-    MisRutasService = __decorate([
+    RegistroRutaService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], MisRutasService);
-    return MisRutasService;
+    ], RegistroRutaService);
+    return RegistroRutaService;
 }());
-exports.MisRutasService = MisRutasService;
-//# sourceMappingURL=misRutas.service.js.map
+exports.RegistroRutaService = RegistroRutaService;
+//# sourceMappingURL=registroRuta.service.js.map

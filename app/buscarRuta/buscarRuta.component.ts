@@ -4,6 +4,8 @@ import {Component} from "@angular/core";
 
 import {RutaComponent} from "../ruta/ruta.component";
 
+import {Http, Header, RequestOptions} from "@angular/http";
+
 let directionsService;
 let directionsDisplay;
 let origen: string;
@@ -12,12 +14,16 @@ let parada: string;
 let paradas:string[] = [];
 let template;
 
+let rutas[];
+
 @Component({
     selector: "buscarRuta",
     templateUrl: "app/buscarRuta/buscarRuta.component.html"
 })
 
 export class BuscarRutaComponent implements OnInit{
+    
+    constructor(private _http: Http) {}
     
     ngOnInit() {
         template = $(".parada-wrapper").html();
@@ -41,10 +47,6 @@ export class BuscarRutaComponent implements OnInit{
         destino = e.target.value;
     }
     
-    buscarRuta() {
-        calculateAndDisplayRoute(directionsService, directionsDisplay, origen, destino, paradas);
-    }
-    
     obtenerParada(e) {
         parada = e.target.value;
     }
@@ -64,6 +66,27 @@ export class BuscarRutaComponent implements OnInit{
     escogerDestino(valor) {
         console.log(valor);
         destino = valor;
+    }
+    
+    buscarRuta() {
+        calculateAndDisplayRoute(directionsService, directionsDisplay, origen, destino, paradas);
+        
+        let url = "https://46b1bef9fb5daf7f51791862ee5b31df-nodejs.codepicnic.com/Ruta";
+        
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        
+        this._http.get(url, options).subscribe(res => {
+            console.log(res);
+            let json = JSON.parse(res._body);
+            console.log(json);
+            for (let i = 0; i < json.value.length; i++) {
+                let ruta = json.value[i];
+                rutas.push(ruta);
+                $(".rutasLista").append("<li>" + JSON.stringify(ruta) + "</li>");
+            }
+            console.log(rutas);
+        });
     }
     
 }
@@ -92,3 +115,29 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, origen, 
         }
     });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
